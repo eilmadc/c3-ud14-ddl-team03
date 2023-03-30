@@ -16,4 +16,6 @@ DNI varchar(8),
 FOREIGN KEY (DNI) REFERENCES Directores (DNI)
 );
 
-INSERT INTO Despachos VALUES (1,3), (2,4), (3,3), (4,2), (5,6), (6,7), (7,8), (8,6), (9,8), (10,7);
+INSERT INTO Directores VALUES ("11122233","JuanJose",null), ("12345678","SandraCasssandra","11122233");
+INSERT INTO Despachos VALUES (1,3,"11122233"), (2,4,"11122233"), (3,3,"11122233"), (4,2,"11122233"), (5,6,"11122233"), 
+(6,7,"12345678"), (7,8,"12345678"), (8,6,"12345678"), (9,8,"12345678"), (10,7,"12345678");
