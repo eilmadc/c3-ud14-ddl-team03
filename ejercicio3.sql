@@ -14,7 +14,10 @@ superficie int
 CREATE TABLE provincia (
 cod_provincia int PRIMARY KEY,
 nombre_provincia char(50),
-@@ -19,6 +21,7 @@ FOREIGN KEY (nombre_comunidad) REFERENCES comunidad_autonoma (nombre_comunidad)
+poblacion int,
+superficie int,
+nombre_comunidad char(50),
+FOREIGN KEY (nombre_comunidad) REFERENCES comunidad_autonoma (nombre_comunidad)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -22,7 +25,8 @@ ON DELETE CASCADE ON UPDATE CASCADE
 CREATE TABLE  localidad(
 nombre_localidad char(50) PRIMARY KEY,
 poblacion int,
-@@ -27,6 +30,7 @@ FOREIGN KEY (cod_provincia) REFERENCES provincia(cod_provincia)
+cod_provincia int NOT NULL,
+FOREIGN KEY (cod_provincia) REFERENCES provincia(cod_provincia)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -30,7 +34,10 @@ ON DELETE CASCADE ON UPDATE CASCADE
 CREATE TABLE capital_ca (
 nombre_localidad char(50),
 KEY (nombre_localidad),
-@@ -37,6 +41,7 @@ FOREIGN KEY (nombre_comunidad) REFERENCES comunidad_autonoma (nombre_comunidad)
+nombre_comunidad char(50),
+KEY (nombre_comunidad),
+FOREIGN KEY (nombre_localidad) REFERENCES localidad (nombre_localidad),
+FOREIGN KEY (nombre_comunidad) REFERENCES comunidad_autonoma (nombre_comunidad)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -44,6 +51,3 @@ FOREIGN KEY (nombre_localidad) REFERENCES localidad (nombre_localidad),
 FOREIGN KEY (cod_provincia) REFERENCES provincia(cod_provincia)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-/* Mostrar tablas */
-SHOW TABLES;
